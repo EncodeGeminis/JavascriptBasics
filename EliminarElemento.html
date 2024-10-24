@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Eliminar Elemento</title>
+</head>
+<body>
+    <ul id="lista">
+        <li id="item1">Elemento 1</li>
+        <li id="item2">Elemento 2</li>
+    </ul>
+    <button onclick="eliminarElemento()">Eliminar Primer Elemento</button>
+
+    <script>
+        function eliminarElemento() {
+            const elemento = document.getElementById("item1");
+            elemento.parentNode.removeChild(elemento);
+        }
+    </script>
+</body>
+</html>

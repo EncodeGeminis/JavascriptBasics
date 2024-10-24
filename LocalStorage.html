@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Tareas</title>
+</head>
+<body>
+    <h1>Lista de Tareas</h1>
+    <input type="text" id="nuevaTarea" placeholder="Nueva tarea">
+    <button onclick="agregarTarea()">Agregar Tarea</button>
+
+    <ul id="lista"></ul>
+
+    <script>
+        // Cargar tareas al iniciar
+        window.onload = function() {
+            cargarTareas();
+        };
+
+        function cargarTareas() {
+            const lista = document.getElementById("lista");
+            const tareas = JSON.parse(localStorage.getItem("tareas")) || [];
+            tareas.forEach(tarea => crearElementoTarea(tarea));
+        }
+
+        function agregarTarea() {
+            const nuevaTarea = document.getElementById("nuevaTarea").value;
+            if (nuevaTarea.trim() === "") return;
+
+            crearElementoTarea(nuevaTarea);
+            guardarEnLocalStorage(nuevaTarea);
+            document.getElementById("nuevaTarea").value = "";
+        }
+
+        function crearElementoTarea(texto) {
+            const li = document.createElement("li");
+            li.textContent = texto;
+            li.addEventListener("click", () => {
+                li.remove();
+                eliminarDeLocalStorage(texto);
+            });
+            document.getElementById("lista").appendChild(li);
+        }
+
+        function guardarEnLocalStorage(tarea) {
+            const tareas = JSON.parse(localStorage.getItem("tareas")) || [];
+            tareas.push(tarea);
+            localStorage.setItem("tareas", JSON.stringify(tareas));
+        }
+
+        function eliminarDeLocalStorage(tarea) {
+            let tareas = JSON.parse(localStorage.getItem("tareas")) || [];
+            tareas = tareas.filter(t => t !== tarea);
+            localStorage.setItem("tareas", JSON.stringify(tareas));
+        }
+    </script>
+</body>
+</html>

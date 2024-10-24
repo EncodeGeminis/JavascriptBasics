@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Galería Dinámica</title>
+    <style>
+        #galeria img {
+            width: 150px;
+            margin: 10px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        #galeria img:hover {
+            transform: scale(1.2);
+        }
+        #imagenGrande {
+            width: 500px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="galeria"></div>
+    <img id="imagenGrande" src="" alt="Imagen Grande">
+
+    <script>
+        const imagenes = [
+            'https://via.placeholder.com/150',
+            'https://via.placeholder.com/150/111',
+            'https://via.placeholder.com/150/222',
+            'https://via.placeholder.com/150/333',
+        ];
+
+        const galeria = document.getElementById("galeria");
+
+        // Crear imágenes en la galería
+        imagenes.forEach(src => {
+            const img = document.createElement("img");
+            img.src = src;
+            img.addEventListener('click', () => mostrarImagenGrande(src));
+            galeria.appendChild(img);
+        });
+
+        // Función para mostrar imagen grande
+        function mostrarImagenGrande(src) {
+            const imagenGrande = document.getElementById("imagenGrande");
+            imagenGrande.src = src;
+            imagenGrande.style.display = 'block';
+        }
+    </script>
+</body>
+</html>

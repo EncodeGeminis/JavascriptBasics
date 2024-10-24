@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cambiar Clase</title>
+    <style>
+        .resaltado {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <p id="parrafo">Texto normal</p>
+    <button onclick="cambiarClase()">Resaltar</button>
+
+    <script>
+        function cambiarClase() {
+            document.getElementById("parrafo").classList.toggle("resaltado");
+        }
+    </script>
+</body>
+</html>

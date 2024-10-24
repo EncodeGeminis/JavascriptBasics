@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ocultar y Mostrar</title>
+</head>
+<body>
+    <p id="parrafo">Este es un párrafo que se puede ocultar.</p>
+    <button onclick="ocultar()">Ocultar</button>
+    <button onclick="mostrar()">Mostrar</button>
+
+    <script>
+        function ocultar() {
+            document.getElementById("parrafo").style.display = "none";
+        }
+
+        function mostrar() {
+            document.getElementById("parrafo").style.display = "block";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detectar Teclado</title>
+</head>
+<body>
+    <input type="text" id="miInput" onkeyup="detectarTecla(event)">
+    <p id="resultado"></p>
+
+    <script>
+        function detectarTecla(event) {
+            document.getElementById("resultado").innerText = `Tecla presionada: ${event.key}`;
+        }
+    </script>
+</body>
+</html>
